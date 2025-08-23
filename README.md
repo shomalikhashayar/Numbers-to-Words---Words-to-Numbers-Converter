@@ -1,8 +1,17 @@
 # Numbers to Words & Words to Numbers Converter
 
-A simple JavaScript utility to convert numbers to words and words to numbers. Useful for applications that require number-to-text or text-to-number conversion, such as financial, educational, or accessibility tools.
+🔄 A lightweight, multilingual JavaScript converter that transforms numbers into their word representations and vice versa in English (EN), Persian (FA), and Arabic (AR). Perfect for financial documents, educational tools, accessibility features, and form validations.
 
-## Features
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Languages: 3](https://img.shields.io/badge/Languages-3-green.svg)
+![Supports RTL](https://img.shields.io/badge/Supports-RTL-blue.svg)
+
+## Supported Languages
+- 🇬🇧 English (e.g., "one hundred twenty-three" ↔️ 123)
+- 🇮🇷 Persian (e.g., "یکصد و بیست و سه" ↔️ 123)
+- 🇸🇦 Arabic (e.g., "مائة و ثلاثة و عشرون" ↔️ 123)
+
+## Key Features
 
 - Convert numbers (e.g., 123) to their word representation (e.g., "one hundred twenty-three")
 - Convert words (e.g., "one hundred twenty-three") back to numbers (e.g., 123)
@@ -22,8 +31,17 @@ A simple JavaScript utility to convert numbers to words and words to numbers. Us
    // Example usage
    const converter = require("./numbers-to-words-words-to-numbers");
 
-   console.log(converter.numberToWords(123)); // "one hundred twenty-three"
-   console.log(converter.wordsToNumber("one hundred twenty-three")); // 123
+   // English
+   console.log(converter.numberToWords(123, 'en')); // "one hundred twenty-three"
+   console.log(converter.wordsToNumber("one hundred twenty-three", 'en')); // 123
+
+   // Persian
+   console.log(converter.numberToWords(123, 'fa')); // "یکصد و بیست و سه"
+   console.log(converter.wordsToNumber("یکصد و بیست و سه", 'fa')); // 123
+
+   // Arabic
+   console.log(converter.numberToWords(123, 'ar')); // "مائة و ثلاثة و عشرون"
+   console.log(converter.wordsToNumber("مائة و ثلاثة و عشرون", 'ar')); // 123
    ```
 
 ### React.js
