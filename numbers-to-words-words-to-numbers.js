@@ -2,6 +2,7 @@
  * Convert numbers to words and words to numbers
  *
  * Author: Khashayar Shomali => https://github.com/shomalikhashayar
+ * Repository: https://github.com/shomalikhashayar/Numbers-to-Words---Words-to-Numbers-Converter
  *
  * Usage:
  *

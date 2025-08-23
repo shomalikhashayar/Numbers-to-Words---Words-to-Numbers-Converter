@@ -23,7 +23,7 @@
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/shomalikhashayar/numbers-to-words-words-to-numbers.git
+   git clone https://github.com/shomalikhashayar/Numbers-to-Words---Words-to-Numbers-Converter.git
    ```
 2. Import or require the script in your project:
 
@@ -49,7 +49,7 @@
 1. Install the package:
 
    ```sh
-   git clone https://github.com/shomalikhashayar/numbers-to-words-words-to-numbers.git
+   git clone https://github.com/shomalikhashayar/Numbers-to-Words---Words-to-Numbers-Converter.git
    ```
 
 2. Create a new React component:
@@ -147,7 +147,7 @@ export default App;
 1. Install the package:
 
    ```sh
-   git clone https://github.com/shomalikhashayar/numbers-to-words-words-to-numbers.git
+   git clone https://github.com/shomalikhashayar/Numbers-to-Words---Words-to-Numbers-Converter.git
    ```
 
 2. Create a new Vue component using `<script setup>`:
