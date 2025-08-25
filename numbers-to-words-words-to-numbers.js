@@ -28,18 +28,7 @@
 
 const dictionaries = {
   fa: {
-    units: [
-      "",
-      "یک",
-      "دو",
-      "سه",
-      "چهار",
-      "پنج",
-      "شش",
-      "هفت",
-      "هشت",
-      "نه",
-    ],
+    units: ["", "یک", "دو", "سه", "چهار", "پنج", "شش", "هفت", "هشت", "نه"],
     teens: [
       "ده",
       "یازده",
@@ -201,6 +190,9 @@ function convertChunk(number, dict, lang) {
       if (units > 0) {
         if (lang === "fa" || lang === "ar") {
           parts.push(`${dict.tens[tens]} و ${dict.units[units]}`);
+        } else if (lang === "en") {
+          // Use hyphen for compound numbers in English
+          parts.push(`${dict.tens[tens]}-${dict.units[units]}`);
         } else {
           parts.push(`${dict.tens[tens]} ${dict.units[units]}`);
         }
@@ -221,7 +213,7 @@ function convertChunk(number, dict, lang) {
 export function numberToWords(number, lang = "fa") {
   if (number === 0) {
     if (lang === "fa") return "صفر";
-    if (lang === "en") return "zero";
+    if (lang === "en") return "Zero";
     if (lang === "ar") return "صفر";
   }
 
@@ -250,13 +242,19 @@ export function numberToWords(number, lang = "fa") {
   let result;
   if (lang === "fa" || lang === "ar") {
     result = chunks.join(" و ");
+  } else if (lang === "en") {
+    // For English, join with commas and spaces, and capitalize first letter
+    result = chunks.join(", ");
+    if (result.length > 0) {
+      result = result.charAt(0).toUpperCase() + result.slice(1);
+    }
   } else {
     result = chunks.join(" ");
   }
 
   if (number < 0) {
     if (lang === "fa") result = "منفی " + result;
-    if (lang === "en") result = "minus " + result;
+    if (lang === "en") result = "Minus " + result;
     if (lang === "ar") result = "سالب " + result;
   }
 
@@ -319,10 +317,7 @@ export function wordsToNumber(text, lang = "fa") {
 
     // Process text: replace "هزار میلیارد" with "تریلیون" and "هزار میلیون" with "میلیارد"
     let processedText = text.replace(/هزار\s+میلیارد/g, "تریلیون");
-    processedText = processedText.replace(
-      /هزار\s+میلیون/g,
-      "میلیارد"
-    );
+    processedText = processedText.replace(/هزار\s+میلیون/g, "میلیارد");
     let processedWords = processedText
       .split(/\s+/)
       .filter((word) => word.trim() !== "");
@@ -407,10 +402,7 @@ export function wordsToNumber(text, lang = "fa") {
     let processedText = text
       .toLowerCase()
       .replace(/thousand\s+billion/g, "trillion");
-    processedText = processedText.replace(
-      /thousand\s+million/g,
-      "billion"
-    );
+    processedText = processedText.replace(/thousand\s+million/g, "billion");
     let words = processedText
       .split(/\s+|-/)
       .filter((word) => word.trim() !== "");
