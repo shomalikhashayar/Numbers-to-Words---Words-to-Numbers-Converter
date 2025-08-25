@@ -403,8 +403,10 @@ export function wordsToNumber(text, lang = "fa") {
       .toLowerCase()
       .replace(/thousand\s+billion/g, "trillion");
     processedText = processedText.replace(/thousand\s+million/g, "billion");
+
+    // Split on commas, spaces, and hyphens, then filter out empty words
     let words = processedText
-      .split(/\s+|-/)
+      .split(/[,\s-]+/)
       .filter((word) => word.trim() !== "");
 
     let total = 0;
