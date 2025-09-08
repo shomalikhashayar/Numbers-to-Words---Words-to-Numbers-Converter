@@ -219,6 +219,9 @@ function convertChunk(number, dict, lang) {
 
 // Convert number to words
 export function numberToWords(number, lang = "fa") {
+
+  number = Math.trunc(number);
+  
   if (number === 0) {
     if (lang === "fa") return "صفر";
     if (lang === "en") return "zero";
